@@ -13,6 +13,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bootstrap-generators', '~> 3.3.4'
 gem 'jquery-rails'
+gem 'record_tag_helper', '~> 1.0'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 
