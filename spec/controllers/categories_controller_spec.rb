@@ -144,4 +144,15 @@ RSpec.describe CategoriesController, type: :controller do
     end
   end
 
+  describe "Get #Posts" do
+    let(:post) { FactoryBot.create(:post, category: category) }
+    let(:category) { FactoryBot.create(:category) }
+
+    it "gets posts related to category" do
+      get :posts, params: {id: category.to_param}
+      expect(response).to be_successful
+      expect(category.posts).to eq([post])
+    end
+  end
+
 end
