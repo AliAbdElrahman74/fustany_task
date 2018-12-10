@@ -26,8 +26,6 @@ postgresql
 
 A step by step series of examples that tell you how to get a development env running
 
-Say what the step will be
-
 ```
 git clone git@github.com:AliAbdElrahman74/fustany_task.git
 ```
@@ -40,8 +38,6 @@ bundle install
 ```
 bundle exec rake db:create db:migrate
 ```
-
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
 
@@ -62,4 +58,4 @@ bundle exec rspec
 
 ## Authors
 
-* **Ali Abdelrahman Ali** - *Initial work* 
+* **Ali Abdelrahman Ali** - *Initial work*
