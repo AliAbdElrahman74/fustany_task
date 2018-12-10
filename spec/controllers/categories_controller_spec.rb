@@ -73,14 +73,14 @@ RSpec.describe CategoriesController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {name: "Category 2"}
       }
 
       it "updates the requested category" do
         category = Category.create! valid_attributes
         put :update, params: {id: category.to_param, category: new_attributes}, session: valid_session
         category.reload
-        skip("Add assertions for updated state")
+        expect(response).to redirect_to(category)
       end
 
       it "redirects to the category" do
@@ -115,13 +115,16 @@ RSpec.describe CategoriesController, type: :controller do
   end
 
   describe "Get #Posts" do
-    let(:post) { FactoryBot.create(:post, category: category) }
-    let(:category) { FactoryBot.create(:category) }
+    context "associated posts" do
+      let(:post) { FactoryBot.create(:post, category: category) }
+      let(:post1) { FactoryBot.create(:post, title: "title 1", category: category) }
+      let(:category) { FactoryBot.create(:category) }
 
-    it "gets posts related to category" do
-      get :posts, params: {id: category.to_param}
-      expect(response).to be_successful
-      expect(category.posts).to eq([post])
+      it "gets posts related to category" do
+        get :posts, params: {id: category.to_param}
+        expect(response).to be_successful
+        expect(category.posts).to eq([post, post1])
+      end
     end
   end
 
